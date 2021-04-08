@@ -1,22 +1,47 @@
-import { red } from '@material-ui/core/colors';
-import { createMuiTheme } from '@material-ui/core/styles';
+// import { orange } from '@material-ui/core/colors';
+import { createMuiTheme } from "@material-ui/core/styles";
+
+const defaultFontFamily = [
+  '-apple-system',
+  'BlinkMacSystemFont',
+  '"Segoe UI"',
+  'Roboto',
+  '"Helvetica Neue"',
+  'Arial',
+]
+
+const normalFont = [
+  '"Yu Gothic Medium"',
+  'YuGothic',
+  'Meiryo', 
+  'sans-serif'
+];
+const boldFont = [
+  '"Yu Gothic"',
+  'YuGothic',
+  'Meiryo', 
+  'sans-serif'
+]
+
+const Emoji = [
+  '"Apple Color Emoji"',
+  '"Segoe UI Emoji"',
+  '"Segoe UI Symbol"'
+]
 
 // A custom theme for this app
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      main: '#556cd6',
+const appTheme = createMuiTheme({
+  typography: {
+    fontFamily: defaultFontFamily.concat(normalFont, Emoji).join(','),
+    h4: {
+      fontWeight: 700,
+      fontFamily: defaultFontFamily.concat(boldFont, Emoji).join(','),
     },
-    secondary: {
-      main: '#19857b',
-    },
-    error: {
-      main: red.A400,
-    },
-    background: {
-      default: '#fff',
+    button: {
+      // ボタンの文字が小文字から大文字に変換されるのを防ぐ
+      textTransform: "none",
     },
   },
 });
 
-export default theme;
+export default appTheme;
